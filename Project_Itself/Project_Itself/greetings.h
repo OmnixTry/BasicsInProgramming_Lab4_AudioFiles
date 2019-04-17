@@ -2,4 +2,4 @@
 #include <string>
 using namespace std;
 
-void check_for_oppen(string filename);
+void check_for_oppen(string *filename);
