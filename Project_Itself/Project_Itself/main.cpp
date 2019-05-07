@@ -1,10 +1,11 @@
-#include <iostream>
-#include <cstdint>
-#include <string>
+#include "matadata.h"
 #include "greetings.h"
 using namespace std;
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
+
+
 	string input_file = argv[1];
 	string output_file = argv[2];
 	float times = stof(argv[3]);
@@ -16,5 +17,5 @@ int main(int argc, char *argv[]) {
 
 
 	system("pause");
-	return 0; 
+	return 0;
 }

@@ -1,31 +1,50 @@
 #pragma once
+#include <fstream>
+#include <iostream>
 #include <cstdint>
 #include <string>
 using namespace std;
 
 class riff {
 private:
-	int32_t chunkId;   // Завжди містить значення 0x52494646 (літери "RIFF")
-	int32_t chunkSize; // 36 + розмір другого підрозділу в байтах
-					   // Іншими словами 4 + (8 + SubChunk1Size) + (8 + SubChunk2Size)
-					   // Це розмір всього файла мінус 8 байтів які займають поля chunkId та chunkSize
-	int32_t format;    // Для wav-файла це завжди 0x57415645 (літери "WAVE")
+	int32_t chunkId;   // Р—Р°РІР¶РґРё РјС–СЃС‚РёС‚СЊ Р·РЅР°С‡РµРЅРЅСЏ 0x52494646 (Р»С–С‚РµСЂРё "RIFF")
+	int32_t chunkSize; // 36 + СЂРѕР·РјС–СЂ РґСЂСѓРіРѕРіРѕ РїС–РґСЂРѕР·РґС–Р»Сѓ РІ Р±Р°Р№С‚Р°С…
+					   // Р†РЅС€РёРјРё СЃР»РѕРІР°РјРё 4 + (8 + SubChunk1Size) + (8 + SubChunk2Size)
+					   // Р¦Рµ СЂРѕР·РјС–СЂ РІСЃСЊРѕРіРѕ С„Р°Р№Р»Р° РјС–РЅСѓСЃ 8 Р±Р°Р№С‚С–РІ СЏРєС– Р·Р°Р№РјР°СЋС‚СЊ РїРѕР»СЏ chunkId С‚Р° chunkSize
+	int32_t format;    // Р”Р»СЏ wav-С„Р°Р№Р»Р° С†Рµ Р·Р°РІР¶РґРё 0x57415645 (Р»С–С‚РµСЂРё "WAVE")
 public:
 	void fill_riff(string filename);
 
+
 };
 
-class waw {
+class subchank1 {
 private:
-	int32_t subchunk1Id;   // Завжди 0x666d7420 – літери "fmt "
-	int32_t subchunk1Size; // Завжди 16 для аудіо PCM. Це розмір частини підрозділу, що слідує після цього числа
+	int numberOFchunk;
+	int32_t subchunk1Id;   // Р—Р°РІР¶РґРё 0x666d7420 вЂ“ Р»С–С‚РµСЂРё "fmt "
+	int32_t subchunk1Size; // Р—Р°РІР¶РґРё 16 РґР»СЏ Р°СѓРґС–Рѕ PCM. Р¦Рµ СЂРѕР·РјС–СЂ С‡Р°СЃС‚РёРЅРё РїС–РґСЂРѕР·РґС–Р»Сѓ, С‰Рѕ СЃР»С–РґСѓС” РїС–СЃР»СЏ С†СЊРѕРіРѕ С‡РёСЃР»Р°
 	int32_t audioFormat;   // PCM = 1
 	int16_t numChannels;   // Mono = 1, Stereo = 2
-	int32_t sampleRate;    // Наприклад 44100
+	int32_t sampleRate;    // РќР°РїСЂРёРєР»Р°Рґ 44100
 	int32_t byteRate;      // == SampleRate * NumChannels * BitsPerSample/8
 	int32_t blockAlign;    // == NumChannels * BitsPerSample/8
 	int16_t bitsPerSample; // 8 bits = 8, 16 bits = 16, etc.
+public:
+	void fill_subchank (string filename);
+};
 
 
-
+class subchank2 {
+private:
+	int numberOFchunk;
+	int32_t subchunk1Id;   // Р—Р°РІР¶РґРё 0x666d7420 вЂ“ Р»С–С‚РµСЂРё "fmt "
+	int32_t subchunk1Size; // Р—Р°РІР¶РґРё 16 РґР»СЏ Р°СѓРґС–Рѕ PCM. Р¦Рµ СЂРѕР·РјС–СЂ С‡Р°СЃС‚РёРЅРё РїС–РґСЂРѕР·РґС–Р»Сѓ, С‰Рѕ СЃР»С–РґСѓС” РїС–СЃР»СЏ С†СЊРѕРіРѕ С‡РёСЃР»Р°
+	int32_t audioFormat;   // PCM = 1
+	int16_t numChannels;   // Mono = 1, Stereo = 2
+	int32_t sampleRate;    // РќР°РїСЂРёРєР»Р°Рґ 44100
+	int32_t byteRate;      // == SampleRate * NumChannels * BitsPerSample/8
+	int32_t blockAlign;    // == NumChannels * BitsPerSample/8
+	int16_t bitsPerSample; // 8 bits = 8, 16 bits = 16, etc.
+public:
+	//void fill_subchank(string filename);
 };
