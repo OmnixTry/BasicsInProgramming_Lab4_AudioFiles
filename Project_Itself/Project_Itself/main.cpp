@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstdint>
 #include <string>
+#include "matadata.h"
+#include "extention.h"
 #include "greetings.h"
 using namespace std;
 
@@ -11,7 +13,13 @@ int main(int argc, char *argv[]) {
 	cout << input_file << endl << output_file << endl << times << endl;
 	check_for_oppen(&input_file);
 
+	//string input_file = "-.wav";
+	//string output_file = "result.wav";
+	//float times = 1.5;
 
+	wild_nixon_metadata(input_file, output_file, times);
+	linear_interpolation(times, input_file, output_file);
+	//linear_interpolation();
 
 
 
