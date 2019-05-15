@@ -4,8 +4,6 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-
-
 	string input_file = argv[1];
 	string output_file = argv[2];
 	float times = stof(argv[3]);

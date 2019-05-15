@@ -24,12 +24,18 @@
     <ClCompile Include="metadata.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="expansion.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="greetings.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="matadata.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="expansion.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

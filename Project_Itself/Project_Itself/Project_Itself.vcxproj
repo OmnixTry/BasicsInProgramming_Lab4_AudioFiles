@@ -124,11 +124,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="expansion.cpp" />
     <ClCompile Include="greetings.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="metadata.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="expansion.h" />
     <ClInclude Include="greetings.h" />
     <ClInclude Include="matadata.h" />
   </ItemGroup>
