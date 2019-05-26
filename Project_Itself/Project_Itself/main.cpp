@@ -13,15 +13,13 @@ int main(int argc, char *argv[]) {
 	float times = stof(argv[3]);
 	cout << input_file << endl << output_file << endl << times << endl;
 	check_for_oppen(&input_file);
-	*/
-	string input_file = "-.wav";
-	string output_file = "result.wav";
-	float times = -1.5;
 
-	wild_nixon_metadata(input_file, output_file, abs(times));
-	wild_nixon_metadata(input_file, "prev.wav", abs(times));
-	if (times > 0) linear_interpolation(times, input_file, output_file);
-	else if (times < 0) linear_interpolation_minus(times, input_file, output_file);
+	//string input_file = "-.wav";
+	//string output_file = "result.wav";
+	//float times = 1.5;
+
+	wild_nixon_metadata(input_file, output_file, times);
+	linear_interpolation(times, input_file, output_file);
 	//linear_interpolation();
 
 
